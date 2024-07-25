@@ -242,30 +242,34 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
   {
-    "vhyrro/luarocks.nvim",
-    priority = 1000,
-    config = true,
-  },
-  {
-    "nvim-neorg/neorg",
-    dependencies = { "luarocks.nvim" },
-    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-    version = "*", -- Pin Neorg to the latest stable release
+    'nvim-neorg/neorg',
+    version = '*', -- Pin Neorg to the latest stable release
     config = true,
     opts = {
       load = {
-        ["core.defaults"] = {},
-        ["core.concealer"] = {},
-        ["core.dirman"] = {
+        ['core.defaults'] = {},
+        ['core.concealer'] = {},
+        ['core.dirman'] = {
           config = {
             workspaces = {
-              notes = "~/notes"
+              notes = '~/notes',
             },
-            default_workspace = "notes",
-          }
-        }
-      }
-    }
+            default_workspace = 'notes',
+          },
+        },
+        ['core.qol.todo_items'] = {
+          config = {
+            create_todo_times = true,
+          },
+        },
+        ['core.completion'] = {
+          config = {
+            engine = 'nvim-cmp',
+          },
+        },
+        ['core.integrations.nvim-cmp'] = {},
+      },
+    },
   },
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -287,8 +291,8 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
   {
-      "VPavliashvili/json-nvim",
-      ft = "json", -- only load for json filetype
+    'VPavliashvili/json-nvim',
+    ft = 'json', -- only load for json filetype
   },
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
@@ -694,10 +698,10 @@ require('lazy').setup({
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
-      -- Disable "format_on_save lsp_fallback" for languages that don't
-      -- have a well standardized coding style. You can add additional
-      -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true, ts = true, tsx = true }
+        -- Disable "format_on_save lsp_fallback" for languages that don't
+        -- have a well standardized coding style. You can add additional
+        -- languages here or re-enable it for the disabled ones.
+        local disable_filetypes = { c = true, cpp = true, ts = true, tsx = true }
         return {
           timeout_ms = 500,
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -710,8 +714,8 @@ require('lazy').setup({
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { { "prettierd", "prettier" } },
-        html = { { "prettierd", "prettier" } },
+        javascript = { { 'prettierd', 'prettier' } },
+        html = { { 'prettierd', 'prettier' } },
       },
     },
   },
@@ -827,6 +831,7 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'neorg' },
         },
       }
     end,
