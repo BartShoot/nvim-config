@@ -6,6 +6,9 @@ vim.g.have_nerd_font = true
 
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
+
+vim.g.shellcmdflag = '-ic'
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -765,7 +768,20 @@ require('lazy').setup({
     end,
   },
 
-  -- Highlight todo, notes, etc in comments
+  {
+    'rachartier/tiny-devicons-auto-colors.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    event = 'VeryLazy',
+    config = function()
+      local theme_colors = require('catppuccin.palettes').get_palette 'mocha'
+      require('tiny-devicons-auto-colors').setup {
+        colors = theme_colors,
+      }
+    end,
+  },
+
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
   { -- Collection of various small independent plugins/modules
