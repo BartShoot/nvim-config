@@ -35,6 +35,14 @@ return {
       filesystem = {
         hijack_netrw_behavior = 'open_current',
       },
+      source_selector = {
+        winbar = true,
+      },
+      window = {
+        mappings = {
+          ['P'] = { 'toggle_preview', config = { use_float = true } },
+        },
+      },
     }
   end,
 }
