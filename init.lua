@@ -767,7 +767,25 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
   },
-
+  {
+    'utilyre/barbecue.nvim',
+    name = 'barbecue',
+    version = '*',
+    dependencies = {
+      'SmiteshP/nvim-navic',
+      'nvim-tree/nvim-web-devicons', -- optional dependency
+    },
+    opts = {
+      -- configurations go here
+    },
+  },
+  {
+    'startup-nvim/startup.nvim',
+    requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('startup').setup()
+    end,
+  },
   {
     'rachartier/tiny-devicons-auto-colors.nvim',
     dependencies = {
