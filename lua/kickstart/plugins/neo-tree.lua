@@ -27,7 +27,7 @@ return {
     -- keymaps
   end,
   keys = {
-    { '\\', ':Neotree toggle<CR>', desc = 'NeoTree toggle' },
+    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   config = function()
     require('neo-tree').setup {
