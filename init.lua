@@ -656,17 +656,13 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-<<<<<<< HEAD
         local disable_filetypes = { c = true, cpp = true, ts = true, tsx = true }
-=======
-        local disable_filetypes = { c = true, cpp = true }
         local lsp_format_opt
         if disable_filetypes[vim.bo[bufnr].filetype] then
           lsp_format_opt = 'never'
         else
           lsp_format_opt = 'fallback'
         end
->>>>>>> 4120893b8a1f31a0957f2f891f7fbef73ddfb9b1
         return {
           timeout_ms = 500,
           lsp_format = lsp_format_opt,
@@ -677,16 +673,9 @@ require('lazy').setup({
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
-<<<<<<< HEAD
-        -- You can use a sub-list to tell conform to run *until* a formatter
-        -- is found.
         typescript = { { 'prettierd', 'prettier' } },
         javascript = { { 'prettierd', 'prettier' } },
         html = { { 'prettierd', 'prettier' } },
-=======
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
->>>>>>> 4120893b8a1f31a0957f2f891f7fbef73ddfb9b1
       },
     },
   },
